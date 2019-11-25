@@ -1,7 +1,13 @@
-Run:
-curl -Lks http://bit.do/cfg-install | /bin/bash
+dotfiles
+===================
 
-or:
+A list of dotfiles (e.g. vimrc, bashrc) for setup on different systems. To setup, **run**
+```
+curl -Lks http://bit.do/cfg-install | /bin/bash
+```
+
+**or**
+```
 git clone --bare git@bitbucket.org:durdn/cfg.git $HOME/.cfg
 function config {
    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
@@ -16,3 +22,4 @@ if [ $? = 0 ]; then
 fi;
 config checkout
 config config status.showUntrackedFiles no
+```
