@@ -76,8 +76,10 @@ augroup END
 " F5/F9 running files {{{
 filetype on
 autocmd FileType python nnoremap <buffer> <F9> :w<CR>:exec '!clear; python3' shellescape(@%, 1)<cr>
+autocmd FileType python inoremap <buffer> <F9> :w<CR>:exec '!clear; python3' shellescape(@%, 1)<cr>
 autocmd Filetype python nnoremap <buffer> <F5> :w<CR>:exec '!clear; python3 -i ' shellescape(@%, 1)<cr>
-autocmd Filetype matlab nnoremap <buffer> <F5> :w<CR>:exec '!clear; octave --persist ' shellescape(@%, 1)<cr>
+autocmd Filetype python inoremap <buffer> <F5> :w<CR>:exec '!clear; python3 -i ' shellescape(@%, 1)<cr>
+autocmd Filetype matlab noremap <buffer> <F5> :w<CR>:exec '!clear; octave --persist ' shellescape(@%, 1)<cr>
 " }}}
 
 " For fun {{{
