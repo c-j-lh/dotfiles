@@ -101,5 +101,6 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-cd MIS_solver
+cd ~/MIS_solver
 alias config='/usr/bin/git --git-dir=/home/cleheng/.cfg/ --work-tree=/home/cleheng'
+alias cat='function _cat(){ cat "$1"; echo; echo; echo; };_cat'
