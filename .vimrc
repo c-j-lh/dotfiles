@@ -31,6 +31,9 @@ nnoremap <leader>9 `>a)<esc>`<i(<esc
 nnoremap x "_x
 nnoremap m "_d
 nnoremap mm "_dd
+nnoremap M "_D
+nnoremap Y y$
+vnoremap m d
 
 inoremap ( ()<left>
 inoremap [ []<left>
