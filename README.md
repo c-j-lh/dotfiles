@@ -3,12 +3,12 @@ dotfiles
 
 A list of dotfiles (e.g. vimrc, bashrc) for setup on different systems. To setup, **run**
 ```
-curl -Lks http://bit.do/cfg-install | /bin/bash
+curl -Lks https://gist.githubusercontent.com/c-j-lh/9accc423c5f11bf37c9aa857b8579456/raw/6459de79544f5263a74677b0893ce71404b517a6/dotfiles | /bin/bash
 ```
 
 **or**
 ```
-git clone --bare git@bitbucket.org:durdn/cfg.git $HOME/.cfg
+git clone --bare https://github.com/c-j-lh/dotfiles.git $HOME/.cfg
 function config {
    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 }
