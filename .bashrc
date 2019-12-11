@@ -105,3 +105,9 @@ cd ~/MIS_solver
 alias config='/usr/bin/git --git-dir=/home/cleheng/.cfg/ --work-tree=/home/cleheng'
 alias cat='function _cat(){ cat "$1"; echo; echo; echo; };_cat'
 #alias less='vim -R' # consideration
+
+function run() {
+	git add *.py mcts/*.py utils/*.py
+	git commit --allow-empty -m "Snapshot before running $*";
+	python3 "$1" "${*:2}";
+}
