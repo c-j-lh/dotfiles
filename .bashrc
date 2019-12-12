@@ -107,7 +107,12 @@ alias cat='function _cat(){ cat "$1"; echo; echo; echo; };_cat'
 #alias less='vim -R' # consideration
 
 function run() {
-	git add *.py mcts/*.py utils/*.py
-	git commit --allow-empty -m "Snapshot before running $*";
-	python3 "$1" "${*:2}";
+	if ls *graphs.pickle 1> /dev/null 2>&1; then
+		echo 'Adding *graphs.pickle'
+		git add *graphs.pickle
+	fi	
+	git add *.py mcts/*.py utils/*.py 
+	git commit --allow-empty -m "Snapshot before running $*" && echo $'\n==================== Running ===================='
+	python3 "$1" "${*:2}" -c file in $i
+
 }
