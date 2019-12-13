@@ -102,7 +102,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 cd ~/MIS_solver
-alias config='/usr/bin/git --git-dir=/home/cleheng/.cfg/ --work-tree=/home/cleheng'
 alias cat='function _cat(){ cat "$1"; echo; echo; echo; };_cat'
 #alias less='vim -R' # consideration
 
@@ -119,3 +118,9 @@ function run() {
 	less +F $filename
 	alias track='less +F "$filename"'
 }
+
+	# setup dotfiles repo
+	function config {
+	   /usr/bin/git --git-dir=/home/clheng/.cfg/ --work-tree=/home/clheng 
+	}
+	

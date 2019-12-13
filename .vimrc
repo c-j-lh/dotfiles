@@ -33,6 +33,7 @@ nnoremap m "_d
 nnoremap mm "_dd
 nnoremap M "_D
 nnoremap Y y$
+nnoremap cc ^c$
 vnoremap m d
 
 inoremap ( ()<left>

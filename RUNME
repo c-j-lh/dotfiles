@@ -1,13 +1,3 @@
-dotfiles
-===================
-
-A list of dotfiles (e.g. vimrc, bashrc) for setup on different systems. To setup, **run**
-```
-curl -Lks https://gist.githubusercontent.com/c-j-lh/9accc423c5f11bf37c9aa857b8579456/raw/6459de79544f5263a74677b0893ce71404b517a6/dotfiles | /bin/bash
-```
-
-**or run RUNME**
-```
 git clone --bare https://github.com/c-j-lh/dotfiles.git $HOME/.cfg
 if type config >/dev/null 2>&1; then
 	>&2 echo Warning: config already defined
@@ -35,4 +25,4 @@ if [ $? = 0 ]; then
 fi;
 config checkout
 config config status.showUntrackedFiles no
-```
+
