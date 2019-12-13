@@ -113,6 +113,9 @@ function run() {
 	fi	
 	git add *.py mcts/*.py utils/*.py 
 	git commit --allow-empty -m "Snapshot before running $*" && echo $'\n==================== Running ===================='
-	python3 "$1" "${*:2}" -c file in $i
-
+	filename=new_log/`echo "$*" | sed 's/ /_/g'`.txt
+	echo "Saving output to $filename"
+	python3 "$1" "${*:2}" -c file in $i 1> $filename 2>&1 &
+	less +F $filename
+	alias track="less +F $filename"
 }
