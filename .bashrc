@@ -121,6 +121,6 @@ function run() {
 
 	# setup dotfiles repo
 	function config {
-	   /usr/bin/git --git-dir=/home/clheng/.cfg/ --work-tree=/home/clheng 
+	   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 	}
 	

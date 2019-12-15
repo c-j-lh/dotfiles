@@ -3,7 +3,7 @@ dotfiles
 
 A list of dotfiles (e.g. vimrc, bashrc) for setup on different systems. To setup, **run**
 ```
-curl -Lks https://gist.githubusercontent.com/c-j-lh/9accc423c5f11bf37c9aa857b8579456/raw/6459de79544f5263a74677b0893ce71404b517a6/dotfiles | /bin/bash
+curl -Lks https://raw.githubusercontent.com/c-j-lh/dotfiles/master/RUNME | /bin/bash
 ```
 
 **or run RUNME**
