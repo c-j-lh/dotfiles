@@ -17,12 +17,12 @@ else
 	}
 
 	read -p "Writing to ~/.bashrc [y/n] "
-	echo "
+	echo '
 	# setup dotfiles repo
 	function config {
 	   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 	}
-	" >> ~/.bashrc	
+	' >> ~/.bashrc	
 fi
 
 mkdir -p .config-backup
