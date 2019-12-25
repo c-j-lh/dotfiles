@@ -113,15 +113,16 @@ function run() {
 	fi	
 	git add *.py mcts/*.py utils/*.py 
 	git commit --allow-empty -m "Snapshot before running $*" && echo $'\n==================== Running ===================='
-	filename=new_log/`echo "$*" | sed 's/ /_/g'`.txt
+	timestamp=`date +%Y-%m-%d_%H`
+	filename=new_log/`echo "$*" | sed 's/ /_/g'`_$timestamp.txt
 	echo "Saving output to $filename"
-	python3 "$1" "${*:2}" -c "file in $filename" 1> "$filename" 2>&1 &
+	python3 -u "$@" -c "file in $filename" 1> "$filename" 2>&1 &
 	less +F $filename
 	alias track='less +F "$filename"'
 }
 
-	# setup dotfiles repo
-	function config {
-	   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
-	}
-	
+# setup dotfiles repo
+function config {
+   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
+}
+

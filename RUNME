@@ -8,11 +8,11 @@ else
 
 	read -p "Writing to ~/.bashrc [y/n] "
 	echo '
-	# setup dotfiles repo
-	function config {
-	   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
-	}
-	' >> ~/.bashrc	
+# setup dotfiles repo
+function config {
+   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
+}
+' >> ~/.bashrc	
 fi
 
 mkdir -p .config-backup
