@@ -33,16 +33,24 @@ nnoremap m "_d
 nnoremap mm "_dd
 nnoremap M "_D
 nnoremap Y y$
-nnoremap cc ^c$
+"nnoremap cc ^c$  " Doesn't work for multiple lines
 vnoremap m d
 
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
+inoremap < <><left>
 inoremap " ""<left>
 inoremap ' ''<left>
 autocmd FileType cpp inoremap < <><left>
 
+
+" indents {{{
+    set shiftwidth=4  " Set number of spaces per auto indentation
+    set expandtab     " When using <Tab>, put spaces instead of a <tab> character
+    set tabstop=4   " Number of spaces that a <Tab> in the file counts for
+    set smarttab    " At <Tab> at beginning line inserts spaces set in shiftwidth
+" }}}
 
 " Python and indents {{{
 augroup python

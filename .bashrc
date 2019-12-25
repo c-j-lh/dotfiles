@@ -103,6 +103,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 cd ~/MIS_solver
 alias cat='function _cat(){ cat "$1"; echo; echo; echo; };_cat'
+alias open='xdg-open'
 #alias less='vim -R' # consideration
 
 function run() {
