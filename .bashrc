@@ -101,12 +101,15 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-cd ~/MIS_solver
+
+[[ -d MIS_solver ]] && cd ~/MIS_solver
 alias cat='function _cat(){ cat "$1"; echo; echo; echo; };_cat'
 alias open='xdg-open'
 #alias less='vim -R' # consideration
 
 function run() {
+    #[[ -d mcts ]] || exit 1
+    #set -e
 	if ls *graphs.pickle 1> /dev/null 2>&1; then
 		echo 'Adding *graphs.pickle'
 		git add *graphs.pickle
@@ -114,7 +117,8 @@ function run() {
 	git add *.py mcts/*.py utils/*.py 
 	git commit --allow-empty -m "Snapshot before running $*" && echo $'\n==================== Running ===================='
 	timestamp=`date +%Y-%m-%d_%H`
-	filename=new_log/`echo "$*" | sed 's/ /_/g'`_$timestamp.txt
+    [[ -d ~/.run_log ]] || mkdir ~/.run_log
+	filename=~/.run_log/`echo "$*" | sed 's/ /_/g'`_$timestamp.txt
 	echo "Saving output to $filename"
 	python3 -u "$@" -c "file in $filename" 1> "$filename" 2>&1 &
 	less +F $filename
