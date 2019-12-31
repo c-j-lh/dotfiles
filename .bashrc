@@ -127,3 +127,6 @@ function run() {
 
 # setup dotfiles repo
 alias config='/usr/bin/env git --git-dir=$HOME/.cfg/ --work-tree=$HOME "$@"'
+config config user.name "Le Heng Chieu"
+config config user.email "chieuleheng@gmail.com"
+#config push --set-upstream origin master

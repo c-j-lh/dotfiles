@@ -1,15 +1,13 @@
-git clone --bare https://github.com/c-j-lh/dotfiles.git $HOME/.cfg
-if type config >/dev/null 2>&1; then
+type config >/dev/null 2>&1
+if [[ $? || -d .config-backup ]]
+then
 	>&2 echo Warning: config already defined
-else
-	alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
-	read -p "Writing to ~/.bashrc [y/n] "
-	echo '
-# setup dotfiles repo
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-' >> ~/.bashrc	
+    read -p "Continue? [y/n] " choice
+    [[ "$choice" =~ [nN] ]] && echo exiting now && exit 0
 fi
+
+git clone --bare https://github.com/c-j-lh/dotfiles.git $HOME/.cfg
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 mkdir -p .config-backup
 config checkout
