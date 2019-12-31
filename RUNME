@@ -2,16 +2,12 @@ git clone --bare https://github.com/c-j-lh/dotfiles.git $HOME/.cfg
 if type config >/dev/null 2>&1; then
 	>&2 echo Warning: config already defined
 else
-	function config {
-	   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
-	}
+	alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 	read -p "Writing to ~/.bashrc [y/n] "
 	echo '
 # setup dotfiles repo
-function config {
-   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
-}
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 ' >> ~/.bashrc	
 fi
 
