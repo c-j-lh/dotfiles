@@ -123,6 +123,7 @@ function run() {
 	python3 -u "$@" -c "file in $filename" 1> "$filename" 2>&1 &
 	less +F $filename
 	alias track='less +F "$filename"'
+    wait
 }
 
 # setup dotfiles repo
