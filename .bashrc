@@ -121,8 +121,9 @@ function run() {
 	filename=~/.run_log/`echo "$*" | sed 's/ /_/g'`_$timestamp.txt
 	echo "Saving output to $filename"
 	python3 -u "$@" -c "file in $filename" 1> "$filename" 2>&1 &
-	less +F $filename
 	alias track='less +F "$filename"'
+    wait
+	less +F $filename
 }
 
 # setup dotfiles repo
